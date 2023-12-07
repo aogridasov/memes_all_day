@@ -9,7 +9,7 @@ else
     isort_args="--check-only --diff --profile black"
 fi
 
-flake8_args="--exclude=migrations,__init__.py,apps.py,media,static --config pyproject.toml"
+flake8_args="--exclude=migrations,__init__.py,apps.py,media,static --max-line-length=100"
 
 echo "Black checking"
 black $black_args .
