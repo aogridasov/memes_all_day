@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Вход</h1>
+    <br>
+    <br>
+    <form method="POST" action="{% url 'memes:login' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Вход</button>
+    </form>
+{% endblock %}

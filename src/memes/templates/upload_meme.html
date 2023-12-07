@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Загрузить мем!</h1>
+    <br>
+    <br>
+    <form method="POST" enctype="multipart/form-data" action="{% url 'memes:meme_create' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Загрузить!</button>
+    </form>
+{% endblock %}

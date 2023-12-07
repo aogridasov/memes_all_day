@@ -1,0 +1,8 @@
+<div class="container">
+        {% for meme in object_list %}
+        <div>
+          {% include 'includes/meme_post.html' %}
+        </div>
+        {% endfor %}
+    {% include 'includes/paginator.html' %}
+</div>

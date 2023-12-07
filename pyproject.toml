@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "ray-test"
+version = "0.1.0"
+description = ""
+authors = ["Anton Gridasov <aogridasov@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pillow = "^10.1.0"
+environs = "^9.5.0"
+psycopg = {extras = ["binary"], version = "^3.1.14"}
+aiohttp = "^3.9.1"
+celery = {extras = ["redis"], version = "^5.3.6"}
+django = "4.2"
+django-celery-beat = "^2.5.0"
+gunicorn = "^21.2.0"
+flake8 = "^6.1.0"
+black = "^23.11.0"
+isort = "^5.12.0"
+docutils = "^0.20.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[flake8]
+max-line-length = 99
+max-doc-length = 99

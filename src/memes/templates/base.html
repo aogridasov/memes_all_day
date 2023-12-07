@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEMES aka RAY TEST TASK</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #header {
+            background-color: #2196f3;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            width: 100%;
+        }
+
+        #header h1 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        #header a {
+          background-color: #1565c0;
+          color: #fff;
+          border: none;
+          padding: 0.5rem 1rem;
+          border-radius: 5px;
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+        #pagi {
+            background-color: #2196f3;
+            color: #fff;
+            display: flex;
+            padding: 1rem;
+            width: 100%;
+            justify-content: center;
+        }
+
+        #pagi li {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 1rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        .meme-container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px; /* Set a fixed width for the meme container */
+            margin-bottom: 20px;
+        }
+
+        .meme-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .meme-container p {
+            font-size: 16px;
+            color: #555;
+            margin: 0; /* Remove default margin for paragraphs */
+        }
+
+        form {
+          display: inline-block;
+          margin: 0;
+      }
+  
+        button {
+            background-color: #1565c0;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        button:hover {
+            background-color: #004080;
+        }
+    </style>
+
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <h1><a href="{% url 'memes:index'%}">Main</a></h1>
+      <form action="{% url 'memes:search' %}" method="get">
+        <input name="q" type="text" placeholder="Search...">
+      </form>
+      {% if user.is_authenticated %}
+        <div>
+          {{ user.username }}
+          <a href="{% url 'memes:favorites'%}">Liked memes</a>
+          <a href="{% url 'memes:my_memes'%}">MY MEMES</a>
+          <a href="{% url 'memes:upload_meme'%}">UPLOAD MEME!</a>
+          <form method="post" action="{% url 'memes:logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+          </form>
+        </div>
+      {% else %}
+        <div>
+          <a href="{% url 'memes:signup' %}">Sign Up</a>
+          <a href="{% url 'memes:login' %}">Login</a>
+        </div>
+      {% endif %}
+    </header>
+      {% block content %}
+        Здесь должен быть контент
+      {% endblock %}
+  </body>
+</html>

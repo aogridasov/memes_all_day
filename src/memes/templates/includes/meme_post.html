@@ -1,0 +1,27 @@
+<div class="meme-container">
+    <img src="{{ meme.image.url }}" alt="Meme Image">
+    <p>{{ meme.description }}</p>
+    <div>
+        {% if user.is_authenticated %}
+            {% if meme.current_user_liked %}
+                    <a href="{% url 'memes:unlike_meme' meme.id %}">
+                        dislike :(
+                    </a>
+            {% else %}
+                <a href="{% url 'memes:like_meme' meme.id %}">
+                    Like!
+                </a>
+            {% endif %}
+        {% else %}
+            No
+        {% endif %}
+        <div>
+            {% if user == meme.author %}
+                <a class="btn btn-primary" href="{% url 'memes:meme_delete' meme.pk %}">
+                    Удалить мем
+                </a>
+            {% endif %}
+        </div>              
+    </div>
+    <p>Likes: {{ meme.likes_count }}</p>
+</div>
