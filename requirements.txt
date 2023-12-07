@@ -51,9 +51,6 @@ pexpect==4.9.0
 Pillow==10.1.0
 pkginfo==1.9.6
 platformdirs==4.1.0
-poetry==1.7.1
-poetry-core==1.8.1
-poetry-plugin-export==1.6.0
 prompt-toolkit==3.0.41
 psycopg==3.1.14
 psycopg-binary==3.1.14
